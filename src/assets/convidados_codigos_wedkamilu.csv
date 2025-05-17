@@ -1,0 +1,122 @@
+id_convite;nome;genero;codigo;telefone;enviado;enviado_por;tipo_mensagem
+1;Helcio;masculino;LfStRkxW;5,52798E+12;sim;lucas;2
+1;Mara;feminino;LfStRkxW;5,52799E+12;sim;lucas;2
+1;Arlete;feminino;LfStRkxW;;nao;lucas;2
+1;Francisco;masculino;LfStRkxW;;nao;lucas;2
+2;Mãe;feminino;cUdvHLtB;5,528E+12;nao;kamila;2
+2;Pai;masculino;cUdvHLtB;5,528E+12;nao;kamila;2
+2;Lolô;masculino;cUdvHLtB;5,528E+12;nao;kamila;1
+2;Mirella;feminino;cUdvHLtB;;nao;kamila;1
+3;Ju;feminino;cjzvJDLF;5,528E+12;nao;kamila;1
+4;Tia Elcy;feminino;xtAILyUX;5,528E+12;nao;kamila;1
+5;Tia Eliane;feminino;XAHuVFOt;5,52799E+12;nao;kamila;1
+6;Chamily;feminino;XVzlOLRE;5,528E+12;nao;kamila;1
+6;Rogério;masculino;XVzlOLRE;5,528E+12;nao;kamila;1
+7;Vó Ivone;feminino;inTGjoYd;5,52799E+12;nao;lucas;2
+7;Tia Michele;feminino;inTGjoYd;5,52798E+12;nao;lucas;2
+7;Tio Eber e Família;masculino;inTGjoYd;5,52798E+12;nao;lucas;2
+7;Rafael Salles;masculino;inTGjoYd;;nao;lucas;2
+7;Isaque Salles;masculino;inTGjoYd;;nao;lucas;2
+7;Mariana Salles;feminino;inTGjoYd;;nao;lucas;2
+7;Tia Isabel;feminino;inTGjoYd;;nao;lucas;2
+9;Irmã;feminino;otEUJjRo;5,52799E+12;nao;lucas;1
+9;Matheus;masculino;otEUJjRo;5,528E+12;nao;lucas;1
+10;Daniel;masculino;WavqdZGy;5,52799E+12;nao;lucas;1
+10;Helena;feminino;WavqdZGy;5,528E+12;nao;lucas;1
+11;Tia Givany e Mayla;feminino;TgRYFBBN;5,528E+12;nao;kamila;1
+11;Mayla Almeida;feminino;TgRYFBBN;;nao;kamila;1
+12;Tia Gê;feminino;QXjcMvVW;5,528E+12;nao;kamila;1
+13;Miau;masculino;WeIiNajS;5,528E+12;nao;lucas;1
+14;Tia Leda;feminino;SBvEyjmW;5,528E+12;nao;kamila;1
+15;Pastor Edson e Família;masculino;BqfnzrNX;5,52799E+12;nao;lucas;2
+15;Telma;feminino;BqfnzrNX;5,528E+12;nao;lucas;2
+15;Davi;masculino;BqfnzrNX;5,528E+12;nao;lucas;1
+16;Tia Cida;feminino;PwTTlxfR;5,528E+12;nao;kamila;1
+17;Prima Lud;feminino;xBhNAIIj;5,528E+12;nao;kamila;1
+18;Prima Marquieli;feminino;wsFCfacv;5,528E+12;nao;kamila;1
+19;Primo João Marcos;masculino;KPuMoWvY;5,528E+12;nao;kamila;1
+20;Tio Robson e Família;masculino;McOSZxae;5,523E+12;nao;lucas;2
+20;Ana Paula;feminino;McOSZxae;;nao;lucas;2
+20;João Victor;masculino;McOSZxae;;nao;lucas;1
+21;Gabriel;masculino;mgHMlFKP;5,528E+12;sim;lucas;1
+21;Vanessa;feminino;mgHMlFKP;5,528E+12;nao;lucas;1
+22;Gaby;feminino;IxsToPzU;5,528E+12;nao;kamila;1
+22;Tia Fabíola;feminino;IxsToPzU;5,528E+12;nao;lucas;2
+22;Tio Wagner;masculino;IxsToPzU;;nao;lucas;2
+23;Christian;masculino;sdCUNAOS;5,52799E+12;nao;lucas;1
+24;Lucas;masculino;mEdwkdGh;5,528E+12;nao;lucas;1
+25;Wendel;masculino;hdWxVhnj;5,528E+12;nao;lucas;1
+25;Rahiara;feminino;hdWxVhnj;5,528E+12;nao;lucas;1
+26;Tio Cassiano e Família;masculino;KVugOZsP;5,528E+12;nao;lucas;2
+26;Cris;feminino;KVugOZsP;;nao;lucas;2
+26;Miguel;masculino;KVugOZsP;;nao;lucas;2
+27;Pastora Krys;feminino;ZNQYWela;5,52799E+12;nao;lucas;2
+27;Pastor Felipe;masculino;ZNQYWela;5,52799E+12;nao;lucas;2
+28;Primo Rodrigo ;masculino;wGXWuyqT;;nao;lucas;1
+28;Tia Ana;feminino;wGXWuyqT;5,523E+12;nao;lucas;1
+28;Tio Rodrigo;masculino;wGXWuyqT;;nao;lucas;1
+28;Primo Felipe;masculino;wGXWuyqT;;nao;lucas;1
+29;Tia Ilza;feminino;idSfLLCW;5,52799E+12;nao;lucas;2
+29;Tio Luiz;masculino;idSfLLCW;5,528E+12;nao;lucas;2
+29;Prima Raquel;feminino;idSfLLCW;5,52799E+12;nao;lucas;1
+29;Prima Priscila;feminino;idSfLLCW;5,52799E+12;nao;lucas;1
+30;Tia Marilza e Tio Glaydison;feminino;SbIfWjMF;5,52798E+12;nao;lucas;2
+30;Glaydison;masculino;SbIfWjMF;;nao;lucas;2
+31;Tio Joana;feminino;UbmlHwgu;5,52799E+12;nao;kamila;2
+31;Tio Carlos;masculino;UbmlHwgu;5,528E+12;nao;kamila;2
+31;Israel;masculino;UbmlHwgu;;nao;kamila;2
+32;Mateus Sampaio;masculino;rUpduFzK;5,528E+12;nao;lucas;1
+33;Lucas Guerra;masculino;mzDVaCbQ;;nao;kamila;1
+33;Thayna;feminino;mzDVaCbQ;4,47843E+11;nao;kamila;1
+34;Tia Margarete;feminino;AVArIslD;;nao;lucas;1
+34;Tio Urquisa;masculino;AVArIslD;5,52799E+12;nao;lucas;1
+34;Felipe Mazza;masculino;AVArIslD;5,52799E+12;nao;lucas;1
+34;Matheus;masculino;AVArIslD;5,528E+12;nao;lucas;1
+34;Lorena;feminino;AVArIslD;5,528E+12;nao;kamila;1
+35;Pastor Felippe e Família;masculino;ZKVghmwC;5,528E+12;nao;lucas;2
+35;Natalia Calvão;feminino;ZKVghmwC;;nao;lucas;2
+36;Raquel;feminino;tAsuwEMn;5,52799E+12;nao;kamila;1
+37;Laís e Rodolfo;feminino;OGMbYAZn;5,528E+12;nao;kamila;1
+37;Rodolfo;masculino;OGMbYAZn;;nao;kamila;1
+38;Tia Francielly e Família;feminino;cifgPbyI;5,528E+12;nao;lucas;1
+38;Jefferson Ruy;masculino;cifgPbyI;;nao;lucas;1
+38;Rafael Ruy;masculino;cifgPbyI;;nao;lucas;1
+38;Miguel;masculino;cifgPbyI;5,528E+12;nao;lucas;1
+39;Prima Thaciana;feminino;eNdDLmou;5,52799E+12;nao;kamila;1
+39;Tia Vânia;feminino;eNdDLmou;5,52799E+12;nao;kamila;1
+39;Bruno;masculino;eNdDLmou;5,528E+12;nao;kamila;1
+40;Prima Thayana e Matheus;feminino;VxrVvrnn;5,528E+12;nao;kamila;1
+40;Matheus Lopes;masculino;VxrVvrnn;;nao;kamila;1
+41;Iago;masculino;nCxHLMRc;5,528E+12;nao;lucas;1
+41;Augusto Cesar;masculino;nCxHLMRc;;nao;lucas;1
+41;Andrea Moura;feminino;nCxHLMRc;;nao;lucas;1
+42;Nicolas;masculino;mSpseWFY;5,528E+12;nao;lucas;1
+43;Meriely;feminino;yPHjVVQN;5,528E+12;nao;kamila;1
+43;Wesley;masculino;yPHjVVQN;5,528E+12;nao;lucas;1
+44;Lavínia;feminino;FrQfhaws;5,528E+12;nao;kamila;1
+45;Mateus;masculino;iQbIispK;5,528E+12;nao;lucas;1
+45;Chris;feminino;iQbIispK;5,528E+12;nao;lucas;1
+45;Thamires;feminino;iQbIispK;5,528E+12;nao;lucas;1
+46;Dyllan e Luana;masculino;itMcNgpn;5,528E+12;nao;lucas;1
+46;Luana;feminino;itMcNgpn;;nao;lucas;1
+47;Amandx;feminino;HMETjDQt;5,52799E+12;nao;kamila;1
+48;Gabriel;masculino;tTMuncnG;5,528E+12;nao;lucas;1
+49;Simon e Francielle;masculino;QyihVfCT;5,52799E+12;nao;lucas;1
+49;Francielle Loureiro;feminino;QyihVfCT;;nao;lucas;1
+50;Fabrycio e Ana;masculino;lgBpDPjX;5,52799E+12;nao;lucas;1
+50;Ana Clara Mattos;feminino;lgBpDPjX;;nao;lucas;1
+51;Prima Quezia;feminino;PQfVIdTw;5,528E+12;nao;kamila;1
+51;Primo Wendel;masculino;PQfVIdTw;5,528E+12;nao;kamila;1
+52;Tio Edmar e Rosemere;masculino;nxhuxpSl;5,528E+12;nao;kamila;2
+52;Tia Rosemere e Tio Edmar;feminino;nxhuxpSl;5,528E+12;nao;kamila;2
+53;Prima Noelia e Jair;feminino;rjvwynFO;5,532E+12;nao;kamila;1
+53;Jair;masculino;rjvwynFO;;nao;kamila;1
+54;Nathan;masculino;BFgQHwWo;5,528E+12;nao;lucas;1
+54;Isadora;feminino;BFgQHwWo;5,528E+12;nao;kamila;1
+54;Pastor Osmar e Família;masculino;BFgQHwWo;5,528E+12;nao;lucas;2
+54;Silvana Louzada;feminino;BFgQHwWo;;nao;lucas;2
+55;Natalia;feminino;GdFLXtCa;5,528E+12;nao;kamila;1
+56;Júlio ;masculino;bJqyLDeY;;nao;lucas;1
+56;Tia Marcilene e Família;feminino;bJqyLDeY;5,528E+12;nao;lucas;1
+56;Mariana;feminino;bJqyLDeY;;nao;lucas;1
+56;Pedro;masculino;bJqyLDeY;;nao;lucas;1
