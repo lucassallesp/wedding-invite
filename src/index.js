@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* global console */
 import pkg from 'whatsapp-web.js';
-const { Client, LocalAuth } = pkg;
+const { Client, LocalAuth, MessageMedia } = pkg;
 import qrcode from 'qrcode-terminal';
 import process from 'node:process';
 import fs from 'fs';
 import csv from 'csv-parser';
 import readline from 'readline';
+import path from 'path';
 
 const enviado_por = 'lucas';
 
@@ -43,8 +44,8 @@ client.on('error', (err) => {
 console.log('Inicializando cliente...');
 client.initialize();
 
-const mensagemTemplate1 = `💍 Querid{letra_genero} {nome_contato}, está chegando o grande dia do nosso casamento!
-E você está mais do que convidado(a) pra essa cerimonia e festa cheia de amor, alegria!
+const mensagemTemplate1 = (nome, letra, codigo) => `💍 Querid${letra} ${nome}, está chegando o grande dia do nosso casamento!
+E você está mais do que convidad${letra} pra essa cerimonia e festa cheia de amor, alegria!
 
 🗓 *Save the Date*
 A nossa história vai ganhar um novo capítulo no dia
@@ -58,7 +59,7 @@ Por isso, não esquece de confirmar se vai poder estar com a gente nessa celebra
 Abaixo se encontra um link exclusivo com o seu código de confirmação. Ele é pessoal e intransferível, então não pode ser compartilhado, tá bom?
 É rapidinho e super importante pra organizarmos tudo com carinho e garantir seu lugar na pista de dança 💃🕺!
 
-👉 Clique para confirmar presença: rsvp.kamilucas.com.br/{codigo}
+👉 Clique para confirmar presença: rsvp.kamilucas.com.br/${codigo}
 
 🚨 *ATENÇÃO* 🚨
 
@@ -70,11 +71,10 @@ No link abaixo você terá acesso ao convite, digital onde estão contidas as in
 Prepara o look, o coração e o passinho na pista!
 
 Com amor e carinho
-*Kamila & Lucas*
-`;
+*Kamila & Lucas*`;
 
-const mensagemTemplate2 = `💍 Querid{letra_genero} {nome_contato}, está chegando o grande dia do nosso casamento!
-E você está mais do que convidado(a) pra essa cerimonia e festa cheia de amor, alegria!
+const mensagemTemplate2 = (nome, letra, codigo) => `💍 Querid${letra} ${nome}, está chegando o grande dia do nosso casamento!
+E você está mais do que convidad${letra} pra essa cerimonia e festa cheia de amor, alegria!
 
 🗓 *Save the Date*
 A nossa história vai ganhar um novo capítulo no dia
@@ -88,7 +88,7 @@ Por isso, não esquece de confirmar se vai poder estar com a gente nessa celebra
 Abaixo se encontra um link exclusivo com o seu código de confirmação. Ele é pessoal e intransferível, então não pode ser compartilhado, tá bom?
 É rapidinho e super importante pra organizarmos tudo com carinho e garantir seu lugar na festa!
 
-👉 Clique para confirmar presença: rsvp.kamilucas.com.br/{codigo}
+👉 Clique para confirmar presença: rsvp.kamilucas.com.br/${codigo}
 
 🚨 *ATENÇÃO* 🚨
 
@@ -98,12 +98,12 @@ No link abaixo você terá acesso ao convite, digital onde estão contidas as in
 💌 bit.ly/convite-kamila-lucas
 
 Com amor
-*Kamila & Lucas*
-`;
+*Kamila & Lucas*`;
 
 async function loadConvidadosAndSendMessages() {
     const convidados = [];
-    fs.createReadStream('assets/convidados_codigos_wedkamilu.csv', { encoding: 'utf8' })
+    const csvPath = path.join(process.cwd(), 'assets', 'convidados_codigos_wedkamilu.csv');
+    fs.createReadStream(csvPath, { encoding: 'utf8' })
         .pipe(csv({ separator: ';' }))
         .on('data', (data) => {
             convidados.push({
@@ -118,13 +118,13 @@ async function loadConvidadosAndSendMessages() {
         })
         .on('end', async () => {
             for (const convidado of convidados) {
-                if (convidado.enviado_por !== enviado_por) {
-                    console.log(`Contato da ${convidado.enviado_por}. Pulando...\n`);
-                    continue;
-                }
-
                 if (convidado.enviado === 'sim') {
                     console.log(`Mensagem já enviada para ${convidado.nome}. Pulando...\n`);
+                    continue;
+                }    
+
+                if (convidado.enviado_por !== enviado_por) {
+                    console.log(`Contato da ${convidado.enviado_por}. Pulando...\n`);
                     continue;
                 }
 
@@ -133,21 +133,29 @@ async function loadConvidadosAndSendMessages() {
                     continue;
                 }
 
-                const mensagem = convidado.tipo_mensagem === '1' ? mensagemTemplate1 : mensagemTemplate2
-                    .replace('{nome_contato}', convidado.nome)
-                    .replace('{codigo}', convidado.codigo)
-                    .replace('{letra_genero}', (convidado.genero === 'masculino' ? 'o' : 'a'));
+                const nome = convidado.nome;
+                const letra = (convidado.genero === 'masculino' ? 'o' : 'a');
+                const codigoConvidado = convidado.codigo;
+
+                const mensagemTemplate = convidado.tipo_mensagem === '1' ? mensagemTemplate1 : mensagemTemplate2;
+                const mensagem = mensagemTemplate(nome, letra, codigoConvidado);
 
                 console.log(mensagem);
                 console.log(`Deseja enviar essa mensagem para ${convidado.nome}? [S] para sim, [N] para não`);
 
-                const confirmacao = await obterConfirmacao();
+                const confirmacao = await obterConfirmacao();                
                 if (confirmacao === 'S') {
                     const chatId = `${convidado.telefone}@c.us`;
-                    try {
-                        await client.sendMessage(chatId, mensagem);
+                    try {                      
+                        const imagePath = path.join(process.cwd(), 'assets', 'lucas-kamila.jpg');
+                        const envioSucesso = await enviarMensagem(client, chatId, imagePath, mensagem);
+                        
                         console.clear();
                         console.log(`Mensagem enviada para: ${convidado.nome}\n`);
+                        
+                        if (envioSucesso) {
+                            await atualizarStatusEnvio(convidado);
+                        }
                     } catch (err) {
                         console.error(`Erro ao enviar mensagem para ${convidado.nome}: \n`, err);
                     }
@@ -181,4 +189,59 @@ function obterConfirmacao() {
         };
         perguntar();
     });
+}
+
+async function enviarMensagem(client, chatId, imagePath, caption = '') {
+    try {
+        if (fs.existsSync(imagePath)) {
+            const media = MessageMedia.fromFilePath(imagePath);
+            await client.sendMessage(chatId, media, { caption });
+            return true;
+        } else {
+            console.log(`Imagem não encontrada: ${imagePath}`);
+            return false;
+        }
+    } catch (error) {
+        console.error('Erro ao enviar imagem:', error);
+        return false;
+    }
+}
+
+async function atualizarStatusEnvio(convidado) {
+    try {
+        const arquivoCSV = path.join(process.cwd(), 'assets', 'convidados_codigos_wedkamilu.csv');
+        
+        const conteudoAtual = fs.readFileSync(arquivoCSV, 'utf8');
+        const linhas = conteudoAtual.split('\n');
+        let encontrado = false;
+        
+        const linhasAtualizadas = linhas.map(linha => {
+            if (!linha.trim()) return linha;
+            
+            const campos = linha.split(';');
+            
+            if (campos.length >= 6 && 
+                campos[1].trim() === convidado.nome.trim() && 
+                campos[4].trim() === convidado.telefone.trim()) {
+                
+                campos[5] = 'sim';
+                encontrado = true;
+                return campos.join(';');
+            }
+            return linha;
+        });
+        
+        if (!encontrado) {
+            console.log(`Não foi possível encontrar o registro para ${convidado.nome} no CSV.`);
+            console.log(`Procurando por: Nome=${convidado.nome}, Telefone=${convidado.telefone}`);
+            return false;
+        }
+        
+        fs.writeFileSync(arquivoCSV, linhasAtualizadas.join('\n'), 'utf8');
+        console.log(`Status de envio atualizado para ${convidado.nome}`);
+        return true;
+    } catch (error) {
+        console.error('Erro ao atualizar o status de envio:', error);
+        return false;
+    }
 }
